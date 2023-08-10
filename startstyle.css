@@ -1,4 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root{
+    --gradient: linear-gradient(
+        45deg,
+        #BF80FF,
+        #ff9344,
+        #ffc700
+    );
+}
+
+@keyframes backgroundGradient {
+    0%{
+        background-position: left;
+    }
+    100%{
+        background-position: right;
+    }
+}
+
 body{
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -52,7 +71,9 @@ main{
     z-index: -1;
     transition: 0.3s;
     background: rgb(191,128,255);
-    background: linear-gradient(90deg, rgba(191,128,255,1) 0%, rgba(255,147,68,1) 50%, rgba(255,199,0,1) 100%);
+    background-image: var(--gradient);
+    animation: backgroundGradient 5s infinite alternate;
+    background-size: 150%;
 }
 .startupBtn{
     border: none;
@@ -167,4 +188,28 @@ main{
     font-weight: 600;
     background: rgb(191,128,255);
     background: linear-gradient(90deg, rgba(191,128,255,1) 0%, rgba(255,147,68,1) 50%, rgba(255,199,0,1) 100%);
+}
+
+@media screen and (max-width: 650px) {
+    .header__title{
+        padding: 0;
+    }
+    .main__form-wrapper{
+        width: 70%;
+    }
+    .main__form-row1{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 385px){
+    .header__title-row1,.header__title-row2{
+        font-size: 9vw;
+    }
+    .main__form-date-text{
+        display: none;
+    }
+    .main__form-inputDate{
+        width: 100%;
+    }
 }
