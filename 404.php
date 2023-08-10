@@ -1,0 +1,1 @@
+pojebalo nie ma takiej strony

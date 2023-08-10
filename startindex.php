@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="startstyle.css">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
 </head>
 <body>
     <header>
@@ -19,30 +18,34 @@
         </div>
     </header>
     <main>
-        <button class="startupBtn">Kliknij aby zacząć</button>
-        <div class="main__background"></div>
+        <?php
+            error_reporting(0);
 
-        <div class="main__form-wrapper">
-            <h2>Wprowadź dane</h2>
-            <form class="main__form">
-                <span class="main__form-row1">
-                    <input class="main__form-input" type="text" name="" id="" placeholder="Imię">
-                    <input class="main__form-input" type="text" name="" id="" placeholder="Nazwisko">
-                </span>
-                <span class="main__form-row2">
-                    <input class="main__form-input" type="email" name="" id="" placeholder="Email">
-                    <span class="main__form-date">
-                        <span class="main__form-date-text">Data urodzenia</span> 
-                        <input class="main__form-input main__form-inputDate" type="date" name="" id="">
-                    </span>
-                </span>
-                    <input type="file" name="" id="">
+            if($_GET['page']){
+                $allowed_page = array("forminput");
 
-                    <input class="main__form-submit" type="submit" value="Przejdź dalej">
-            </form>
-        </div>
+                $page = filter_var($_GET['page'], FILTER_SANITIZE_STRING);
+
+                if(!empty($page)){
+                    if(!in_array($page, $allowed_page)){
+                        include("404.php");
+                    } else {
+                        if(is_file($page.".php")){
+                            include($page.".php");
+                        } else{
+                            echo "strona nie istnieje";
+                        }
+                    }
+                }
+            } else {
+                echo "
+                    <a href='?page=forminput' class='startupBtn'>Kliknij aby zacząć</a>
+                ";
+            }
+        ?>
+        
     </main>
 
-    <script src="startscript.js"></script>
+    <!-- <script src="startscript.js"></script> -->
 </body>
 </html>
