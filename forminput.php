@@ -17,6 +17,7 @@
 
         $newName = $userName.$userLastname;
 
+        echo $userMainImg;
 
         if(isset($_FILES['userMainImg'])){
             $allowedExtensions = ["jpeg", "jpg", "png", "webp"];
@@ -57,10 +58,18 @@
                 $_SESSION['lastname'] = $userLastname;
                 $_SESSION['email'] = $userEmail;
                 $_SESSION['birthDate'] = $userDateBirth;
-                $_SESSION['mainImg'] = $userMainImg;
+                $_SESSION['mainImg'] = $newFileName;
+                
 
-                header('Location: ./editor/editor.php');
+                echo $userName.'<br>';
+                echo $userLastname.'<br>';
+                echo $userEmail.'<br>';
+                echo $userDateBirth.'<br>';
+                echo $newFileName.'<br>';
+
+                header('Location: editor/editor.php');
                 exit;
+
             } else {
                 $errorInfo[] = "jakis blad chuj wie o co chodzi";
             }
