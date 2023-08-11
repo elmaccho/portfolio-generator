@@ -191,6 +191,31 @@ main{
     font-weight: 600;
 }
 
+.error404{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.error404 p{
+    font-size: 120px;
+    font-weight: 600;
+    margin: 0;
+    background-image: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.returnBtn{
+    text-decoration: none;
+    color: #232323;
+    font-weight: 600;
+}
+.returnBtn:hover{
+    background-image: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 @media screen and (max-width: 650px) {
     .header__title{
         padding: 0;
