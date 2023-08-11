@@ -23,9 +23,8 @@
             $temp = explode(".", $_FILES['userMainImg']['name']);
             $fileExtension = strtolower(end($temp));
         
-            // Sprawdź, czy rozszerzenie pliku jest dozwolone
             if(in_array($fileExtension, $allowedExtensions)){
-                // Generuj unikalną nazwę pliku
+
                 $newFileName = $userName.$userLastname . uniqid() . "." . $fileExtension;
         
                 if(move_uploaded_file($_FILES['userMainImg']['tmp_name'], "images/" . $newFileName)){
@@ -36,22 +35,34 @@
             } else {
                 $errorInfo[] = "Niedozwolone rozszerzenie pliku";
             }
+        } else {
+            $errorInfo[] = "Wypełnij wszystkie pola";
         }
 
         if(empty($errorInfo)){
             $conn = new mysqli("localhost","root","","portfolio_generator");
 
+            
+
             if ($conn->connect_error) {
                 die("Błąd połączenia z bazą danych. Przepraszamy za problemy");
             }
 
-            $stmt = $conn->prepare("INSERT INTO `usermaindata`(`name`, `lastname`, `email`, `birthDate`, `mainImg`) VALUES ('$userName','$userLastname','$userEmail','$userDateBirth','$userMainImg')");
-            $stmt->bind_param('sssss', $userName, $userLastname, $userEmail, $userDateBirth, $userMainImg);
+            $stmt = $conn->prepare("INSERT INTO `usermaindata`(`name`, `lastname`, `email`, `birthDate`, `mainImg`) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param('sssss', $userName, $userLastname, $userEmail, $userDateBirth, $newFileName);
 
             if($stmt->execute()){
-                
+                session_start();
+                $_SESSION['name'] = $userName;
+                $_SESSION['lastname'] = $userLastname;
+                $_SESSION['email'] = $userEmail;
+                $_SESSION['birthDate'] = $userDateBirth;
+                $_SESSION['mainImg'] = $userMainImg;
+
+                header('Location: ./editor/editor.php');
+                exit;
             } else {
-                echo "jakis blad chuj wie o co chodzi";
+                $errorInfo[] = "jakis blad chuj wie o co chodzi";
             }
 
             $stmt->close();

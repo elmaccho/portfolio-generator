@@ -17,7 +17,7 @@ if (!localStorage.getItem(STORAGE_KEY)) {
   
     localStorage.setItem(STORAGE_KEY, 'true');
 
-    const resetTimeInMilliseconds = 3600000;
+    const resetTimeInMilliseconds = 300000;
     setTimeout(() => {
       localStorage.removeItem(STORAGE_KEY);
     }, resetTimeInMilliseconds);
