@@ -108,5 +108,39 @@ main{
 
 .home__userMain-img{
     max-width: 500px;
-    /* width: 50vw; */
+    min-width: 350px;
+    width: 40vw;
+}
+
+
+@media screen and (max-width: 970px) {
+    .home__section{
+        flex-direction: column-reverse;
+    }
+    .home__userMain-img{
+        width: 80%;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+    .home__text{
+        position: relative;
+
+    }
+    .home__text-row1-span{
+        font-size: 32px;
+        top:unset;
+    }
+    .home__text-row2-span{
+        font-size: 32px;
+    }
+    .home__text-row1{
+        position: absolute;
+        left: 20px;
+    }
+    .home__text-row2{
+        position: absolute;
+        right: 20px;
+    }
 }
