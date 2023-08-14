@@ -35,3 +35,61 @@ nav{
     color: #474747;
     font-size: 20px;
 }
+
+
+main{
+
+}
+.home__section{
+    height: 85vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.home__col1{
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(20%, -50%);
+}
+
+.home__col2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top:50%;
+    transform: translate(-20%, -50%);
+}
+
+.home__text{
+    
+}
+.home__text-row1-span{
+    font-size: 48px;
+    position: relative;
+    top:30px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+.home__text-row2-span{
+    font-size: 64px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.home__desc-span{
+    position: relative;
+    top: -10px;
+    display: block;
+    width: 80%;
+}
+
+
+.home__userMain-img{
+    max-width: 500px;
+}
