@@ -2,7 +2,7 @@
     session_start();
 
     if(!isset($_SESSION['email'])){
-        header('Location: ../forminput.php');
+        header('Location: ../startindex.php?page=forminput');
     }
 
     $userNameE = $_SESSION['name'];

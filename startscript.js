@@ -10,40 +10,41 @@ const emailInput = document.querySelector('#emailInput');
 const dateBirthInput = document.querySelector('#dateBirthInput');
 const mainImgInput = document.querySelector('#mainImgInput');
 
-const STORAGE_KEY = 'startupAnimationDone';
+// const STORAGE_KEY = 'startupAnimationDone';
 
-if (!localStorage.getItem(STORAGE_KEY)) {
-    startUp();
+// if (!localStorage.getItem(STORAGE_KEY)) {
+//     startUp();
   
-    localStorage.setItem(STORAGE_KEY, 'true');
+//     localStorage.setItem(STORAGE_KEY, 'true');
 
-    const resetTimeInMilliseconds = 300000;
-    setTimeout(() => {
-      localStorage.removeItem(STORAGE_KEY);
-    }, resetTimeInMilliseconds);
-  } else {
-  mainBackground.style.width = '100%';
-  mainBackground.style.transition = 'unset';
-  header.style.height = '20vh';
-  main.style.height = '80vh';
-  mainFormWrapper.style.display = 'flex';
-  mainFormWrapper.style.opacity = '100';
-}
+//     const resetTimeInMilliseconds = 300000;
+//     setTimeout(() => {
+//       localStorage.removeItem(STORAGE_KEY);
+//     }, resetTimeInMilliseconds);
+//   } else {
+//   mainBackground.style.width = '100%';
+//   mainBackground.style.transition = 'unset';
+//   header.style.height = '20vh';
+//   main.style.height = '80vh';
+//   mainFormWrapper.style.display = 'flex';
+//   mainFormWrapper.style.opacity = '100';
+// }
 
 function startUp() {
   mainBackground.style.width = '100%';
 
   setTimeout(() => {
-    main.style.height = '80vh';
     mainFormWrapper.style.display = 'flex';
 
     setTimeout(() => {
       mainFormWrapper.style.opacity = '100';
-    }, 500);
+    }, 300);
 
-  }, 1000);
+  }, 600);
 }
 
 const formValidator = () => {
     
 }
+
+startUp()
