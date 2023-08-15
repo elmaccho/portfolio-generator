@@ -3,10 +3,14 @@ const navCloseBtn = document.querySelector('.nav__close-btn')
 const navWrapper = document.querySelector('.nav__wrapper')
 
 const openNav = () => {
-    navWrapper.style.transform = "translateX(0%)"
+    navWrapper.classList.add('nav__open')
+    navWrapper.classList.remove('nav__close')
+    console.log('open');
 }
 const closeNav = () => {
-    navWrapper.style.transform = "translateX(-100%)"
+    navWrapper.classList.add('nav__close')
+    navWrapper.classList.remove('nav__open')
+    console.log('close');
 }
 const NavIfOutside = (e) => {
     if(!navWrapper.contains(e.target) && !navOpenBtn.contains(e.target)){

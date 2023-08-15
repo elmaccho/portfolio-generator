@@ -55,10 +55,13 @@ header .header__title{
     opacity: 75%;
 }
 
+
+
 .nav__wrapper{
     position: relative;
     transform: translateX(0%);
 }
+
 
 .nav__links{
     display: flex;
@@ -243,6 +246,12 @@ main{
         transition: 0.3s;
         transform: translateX(-100%);
     }
+    .nav__open{
+        transform: translateX(0%);
+    }
+    .nav__close{
+        transform: translateX(-100%);
+    }
     .nav__links{
         padding: 0 25px;
         flex-direction: column;
@@ -263,5 +272,9 @@ main{
 @media screen and (max-width: 500px){
     header{
         padding: 0 25px;
+    }
+    .home__userMain-img{
+        width: 100%;
+        min-width: unset;
     }
 }
