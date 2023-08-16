@@ -14,6 +14,8 @@ body{
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
     background-color: #232323;
+
+    display: flex;
 }
 
 .preview__wrapper{
@@ -228,6 +230,75 @@ main{
     transform: translateX(5px);
 }
 
+
+.edit__panel{
+    background-color: #474747;
+    width: 20.7%;
+    height: 673px;
+    position: absolute;
+    right: 0;
+    top: 37px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 75px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.edit__main-title{
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.edit__settings{
+    width: 100%;
+}
+/* .edit__main-title::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+} */
+.edit__title{
+    color: white;
+    font-size: 20px;
+    position: relative;
+}
+.edit__title::after{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.sections__form{
+    display: flex;
+    flex-direction: column;
+}
+.edit__sections{
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+.list__sections li{
+    color: white;
+}
+
+.title__section{
+    font-size: 65px;
+    background-image: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 @media screen and (max-width: 970px) {
     .home__section{
